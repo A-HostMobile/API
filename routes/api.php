@@ -29,6 +29,10 @@ Route::resource('test',function(){
 	return "Hello Test";
 });
 
+<<<<<<< HEAD
 Route::get('lol',function(){
 	return "Test Foooooo"
 });
+=======
+Route::get('TestGithub','Controller');
+>>>>>>> 3e4c35502fcdf7f928268d65c3bae3054f27b4cb
