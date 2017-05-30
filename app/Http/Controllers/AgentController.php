@@ -18,8 +18,8 @@ class AgentController extends Controller
     public function index()
     {
         try{
-
-             $agents = Agents::all();
+             $column = ['A_LABEL','A_LATTITUDE','A_LONGTITUDE'];
+             $agents = Agents::select($column)->get();
              return response()->json($agents);
 
         }catch(\Illuminate\Database\QueryException $e){
