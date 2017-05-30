@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('agent',function(){
-    $agents = DB::table('AGENTS')->get();
-    return response()->json($agents);
-});
+// Route::get('agent',function(){
+//     $agents = DB::table('AGENTS')->get();
+//     return response()->json($agents);
+// });
