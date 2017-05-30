@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::resource('continent','ContinentController');
 // Route::get('agent',function(){
 //     $agents = DB::table('AGENTS')->get();
 //     return response()->json($agents);
