@@ -29,4 +29,4 @@ Route::resource('test',function(){
 	return "Hello Test";
 });
 
-Route::get('TestGithub','TestController');
+Route::get('TestGithub','Controller');
