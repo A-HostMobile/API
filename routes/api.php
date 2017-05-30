@@ -21,4 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('continent','ContinentController');
 Route::resource('agent','AgentController');
+Route::resource('quickcode','QuickcodeController');
+Route::resource('blogs','BlogsController');
 
