@@ -20,19 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('continent','ContinentController');
-// Route::get('agent',function(){
-//     $agents = DB::table('AGENTS')->get();
-//     return response()->json($agents);
-// });
-
-Route::resource('test',function(){
-	return "Hello Test";
-});
-
-
-Route::get('lol',function(){
-	return "Test Foooooo"
-});
-
-Route::get('TestGithub','Controller');
+Route::resource('agent','AgentController');
 
