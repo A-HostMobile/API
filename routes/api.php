@@ -24,3 +24,7 @@ Route::resource('continent','ContinentController');
 //     $agents = DB::table('AGENTS')->get();
 //     return response()->json($agents);
 // });
+
+Route::resource('test',function(){
+	return "Hello Test";
+});
