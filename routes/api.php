@@ -23,4 +23,6 @@ Route::resource('continent','ContinentController');
 Route::resource('agent','AgentController');
 Route::resource('quickcode','QuickcodeController');
 Route::resource('blogs','BlogsController');
+Route::get('schedule/{dest}','ScheduleController@searchSchedule');
+Route::get('schedule/{dest}/{loading}','ScheduleController@otherSchedule');
 
