@@ -25,4 +25,7 @@ Route::resource('quickcode','QuickcodeController');
 Route::resource('blogs','BlogsController');
 Route::get('schedule/{dest}','ScheduleController@searchSchedule');
 Route::get('schedule/{dest}/{loading}','ScheduleController@otherSchedule');
-
+Route::get('advertisement/news','AdvertisementController@news');
+Route::get('advertisement/promotions','AdvertisementController@promotions');
+Route::get('advertisement/detail/{id}','AdvertisementController@detail');
+Route::get('advertisement/home','AdvertisementController@home');
