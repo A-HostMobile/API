@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('continent','ContinentController');
 Route::resource('agent','AgentController');
-Route::resource('quickcode','QuickcodeController');
 Route::resource('blogs','BlogsController');
 Route::resource('commodities','CommoditiesController');
 Route::get('schedule/{dest}','ScheduleController@searchSchedule');
@@ -30,3 +29,7 @@ Route::get('advertisement/news','AdvertisementController@news');
 Route::get('advertisement/promotions','AdvertisementController@promotions');
 Route::get('advertisement/detail/{id}','AdvertisementController@detail');
 Route::get('advertisement/home','AdvertisementController@home');
+Route::get('quickcode/pod','QuickcodeController@pod');
+Route::get('quickcode/package','QuickcodeController@package');
+Route::get('quickcode/gwunit','QuickcodeController@gwunit');
+Route::get('quickcode/countrycode','QuickcodeController@countrycode');
