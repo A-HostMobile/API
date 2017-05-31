@@ -17,7 +17,6 @@ class ScheduleController extends Controller
 
     	try{
       		 
-      		 // $destination = 'JAKARTA';
 			 $today = date("d/m/Y",time());
 			 $condition_date = " S_CLOSING_DATE >= TO_DATE('$today', 'DD/MM/YYYY')+ INTERVAL '2' DAY ORDER BY S_ETD ASC";
 
@@ -62,8 +61,8 @@ class ScheduleController extends Controller
 
     	try{
       		 
-      		 // $destination = 'JAKARTA';
 			 $today = date("d/m/Y",time());
+			 $loading = date("d-m-Y",$loading);
 			 $condition_date = " S_CLOSING_DATE >= TO_DATE('$today', 'DD/MM/YYYY')+ INTERVAL '2' DAY ORDER BY S_ETD ASC";
 
 			 $result = DB::select(DB::raw("SELECT S_SCHEDULE_ID,S_TYPE,S_FROM,S_TO,S_CARRIER,S_FEEDER,S_FVOY,S_VESSEL,S_VOY,
