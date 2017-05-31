@@ -37,7 +37,7 @@ class ScheduleController extends Controller
 					else if($row->time == 2){
 						$row->time = "Saturday Closing Date  before : 12.00 AM";
 					}
-					
+
 					$data[] = $row;
 					
 				}
@@ -69,12 +69,21 @@ class ScheduleController extends Controller
 			 $result = DB::select(DB::raw("SELECT S_SCHEDULE_ID,S_TYPE,S_FROM,S_TO,S_CARRIER,S_FEEDER,S_FVOY,S_VESSEL,S_VOY,
 			 							S_CLOSING_DATE,S_ETD,S_ETA,S_FEEDER_FLAG,CREATION_DATE,CREATED_BY,LAST_UPDATE_DATE,
 			 							LAST_UPDATED_BY,(SELECT VALIDATE_CLOSING_DATE(S_CLOSING_DATE) FROM DUAL) AS TIME 
-										FROM SCHEDULES
-										WHERE S_TO= '$dest' 
-										AND $condition_date"));
+			 							FROM SCHEDULES 
+			 							WHERE S_TO = '$dest' 
+			 							AND S_CLOSING_DATE >= TO_DATE('$today', 'DD/MM/YYYY')+ INTERVAL '2' DAY 
+			 							AND TO_DATE('$loading', 'DD/MM/YYYY') <= S_CLOSING_DATE 
+			 							ORDER BY S_CLOSING_DATE ASC FETCH FIRST 1 ROWS ONLY"));
 			 $data = array();
 			 foreach ($result as $row ) 
 				{
+					if($row->time == 1){
+						$row->time = "Monday-Friday before: 17.00 PM";
+					}
+					else if($row->time == 2){
+						$row->time = "Saturday Closing Date  before : 12.00 AM";
+					}
+
 					$data[] = $row;
 					
 				}
