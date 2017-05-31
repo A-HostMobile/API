@@ -23,6 +23,7 @@ Route::resource('continent','ContinentController');
 Route::resource('agent','AgentController');
 Route::resource('quickcode','QuickcodeController');
 Route::resource('blogs','BlogsController');
+Route::resource('commodities','CommoditiesController');
 Route::get('schedule/{dest}','ScheduleController@searchSchedule');
 Route::get('schedule/{dest}/{loading}','ScheduleController@otherSchedule');
 Route::get('advertisement/news','AdvertisementController@news');
