@@ -21,7 +21,10 @@ class ScheduleController extends Controller
 			 $condition_date = " S_CLOSING_DATE >= TO_DATE('$today', 'DD/MM/YYYY')+ INTERVAL '2' DAY ORDER BY S_ETD ASC";
 
 			 $result = DB::select(DB::raw("SELECT S_SCHEDULE_ID,S_TYPE,S_FROM,S_TO,S_CARRIER,S_FEEDER,S_FVOY,S_VESSEL,S_VOY,
-			 							S_CLOSING_DATE,S_ETD,S_ETA,S_FEEDER_FLAG,CREATION_DATE,CREATED_BY,LAST_UPDATE_DATE,
+			 							TO_CHAR(S_CLOSING_DATE,'DD-MON-YYYY') as S_CLOSING_DATE,
+			 							TO_CHAR(S_ETD,'DD-MON-YYYY') as S_ETD,TO_CHAR(S_ETA,'DD-MON-YYYY') as S_ETA,
+			 							S_FEEDER_FLAG,CREATION_DATE,CREATED_BY,
+			 							TO_CHAR(LAST_UPDATE_DATE,'DD-MON-YYYY') as LAST_UPDATE_DATE,
 			 							LAST_UPDATED_BY,(SELECT VALIDATE_CLOSING_DATE(S_CLOSING_DATE) FROM DUAL) AS TIME 
 										FROM SCHEDULES
 										WHERE S_TO= '$dest' 
@@ -41,7 +44,6 @@ class ScheduleController extends Controller
 					
 				}
 
-			
              $resp = Help::createResp(0,"Query Success",$data);
              return response()->json($resp);
 
